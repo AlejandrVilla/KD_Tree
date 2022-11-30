@@ -28,7 +28,7 @@ public:
     // punto, valor
     void insert(vd& coord, T value);       
     // busca vecino mas cercano 
-    void NNSearch(vd& coord);              
+    void NNSearch(vd& coord);         // O(2^d + logn)      
 
     void inOrder();
     void postOrder();
@@ -176,14 +176,12 @@ void KD_Tree<T,dim>::NNSearch(vd& coord)
     {
         // nueva posible mejor distancia
         distance(coord, p, best_dist, best);
-
         // poda ramas si hay interseccion con otra region, 
         // debe buscar posibles puntos mas cercanos
         if(!child && abs(coord[p->cd] - p->coord[p->cd]) < best_dist)
             prune(coord, p->R, best, best_dist);
         else if(child && abs(coord[p->cd] - p->coord[p->cd]) < best_dist)
             prune(coord, p->L, best, best_dist);
-
         // de que rama viene
         if(p->P && p->P->L == p)
             child = 0;

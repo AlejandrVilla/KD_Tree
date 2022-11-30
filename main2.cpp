@@ -13,7 +13,7 @@ set<pair<double, pair<int, vd>>> NNBF;
 vector<pair<int, vd>> points;       // tiempo insercion O(1)
 
 // distancia a todos los puntos
-void NNFuerzaBruta(vd& coord, int dim)
+void NNFuerzaBruta(vd& coord, int dim)      // O()
 {
     for(int i=0 ; i<points.size() ; ++i)
     {

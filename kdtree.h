@@ -13,7 +13,7 @@ private:
     Node<T,dim>* root;
 
     // punto, valor, dimension actual (x, y, ...), nodo, padre del nodo
-    void insert(vd& coord, T value, int cd, Node<T,dim>*& N, Node<T,dim>* P);       // O(logn)
+    void insert(vd& coord, T value, int cd, Node<T,dim>*& N, Node<T,dim>* P);   // O(logn)
     // busca posibles puntos mas cercanos en otras ramas (regiones)
     void prune(vd& coord, Node<T,dim>* N, Node<T,dim>* &best, double& best_dist);  
     // compara si la distancia al punto de P es mas corta       
